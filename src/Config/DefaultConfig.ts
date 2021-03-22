@@ -18,11 +18,13 @@ export const isProduction =
 export const isTest =
   (env.NODE_ENV as AppEnvKeys) === AppEnvKeys.Test ? true : false;
 
+const global = globalThis || window;
+
 export const isLocalhost =
-  window &&
-  window.location &&
-  (window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1');
+  global &&
+  global.location &&
+  (global.location.hostname === 'localhost' ||
+    global.location.hostname === '127.0.0.1');
 
 const resolveApiUrl = (environment: AppEnvKeys) => {
   switch (environment) {
@@ -37,10 +39,10 @@ const resolveApiUrl = (environment: AppEnvKeys) => {
 };
 
 export const apiConfig: ApiConfig = {
-  protocol: isDevelopment ? ApiProtocol.Http : ApiProtocol.Https,
+  protocol: isProduction || isStaging ? ApiProtocol.Https : ApiProtocol.Http,
   url: env.REACT_APP_API || resolveApiUrl(env.NODE_ENV as AppEnvKeys),
   path: '',
-  port: isDevelopment ? 1337 : undefined,
+  port: !(isProduction || isStaging) ? 1337 : undefined,
 };
 
 export const createApiUrl = ({

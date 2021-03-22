@@ -1,4 +1,4 @@
-import './Alerts.scss';
+// import './Alerts.scss';
 
 import { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
