@@ -1,40 +1,65 @@
+import { StandardActionFn } from '../../Redux';
 import { AlertActionTypes, ToggleType } from './Keys';
-import { AlertAddPayload, AlertPayload, StandardActionFn } from './Types';
+import { AlertAddPayload, AlertPayload } from './Types';
 
-export const addAlert: StandardActionFn<AlertActionTypes.Add, AlertAddPayload, undefined> = payload => ({
+export const addAlert: StandardActionFn<
+  AlertActionTypes.Add,
+  AlertAddPayload,
+  undefined
+> = (payload) => ({
   type: AlertActionTypes.Add,
-  payload
+  payload,
 });
 
-export const clearAlert: StandardActionFn<AlertActionTypes.Clear, undefined, undefined> = payload => ({
+export const clearAlert: StandardActionFn<
+  AlertActionTypes.Clear,
+  undefined,
+  undefined
+> = (payload) => ({
   type: AlertActionTypes.Clear,
-  payload
+  payload,
 });
 
-export const hideAlert: StandardActionFn<AlertActionTypes.Hide, AlertPayload, undefined> = payload => ({
+export const hideAlert: StandardActionFn<
+  AlertActionTypes.Hide,
+  AlertPayload,
+  undefined
+> = (payload) => ({
   type: AlertActionTypes.Hide,
   payload: {
     ...payload,
     state: ToggleType.Hide,
-  }
+  },
 });
 
-export const removeAlert: StandardActionFn<AlertActionTypes.Remove, AlertPayload, undefined> = payload => ({
+export const removeAlert: StandardActionFn<
+  AlertActionTypes.Remove,
+  AlertPayload,
+  undefined
+> = (payload) => ({
   type: AlertActionTypes.Remove,
-  payload
+  payload,
 });
 
-export const showAlert: StandardActionFn<AlertActionTypes.Show, AlertPayload, undefined> = payload => ({
+export const showAlert: StandardActionFn<
+  AlertActionTypes.Show,
+  AlertPayload,
+  undefined
+> = (payload) => ({
   type: AlertActionTypes.Show,
   payload: {
     ...payload,
     state: ToggleType.Show,
-  }
+  },
 });
 
-export const toggleAlert: StandardActionFn<AlertActionTypes.Toggle, AlertPayload, undefined> = payload => ({
+export const toggleAlert: StandardActionFn<
+  AlertActionTypes.Toggle,
+  AlertPayload,
+  undefined
+> = (payload) => ({
   type: AlertActionTypes.Toggle,
-  payload
+  payload,
 });
 
 export const createAlertAction = () => ({
@@ -44,6 +69,6 @@ export const createAlertAction = () => ({
   remove: removeAlert,
   show: showAlert,
   toggle: toggleAlert,
-})
+});
 
 export const alertAction = createAlertAction();

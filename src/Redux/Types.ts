@@ -69,3 +69,19 @@ export type GlobalState = PublicState & PrivateState;
 export interface Dispatch<Action> {
   <A extends Action>(action: A): A;
 }
+
+export interface StandardAction<
+  ActionType extends string,
+  Payload,
+  Meta extends undefined | Object
+> {
+  type: ActionType;
+  meta?: Meta;
+  payload: Payload;
+}
+
+export type StandardActionFn<
+  ActionType extends string,
+  Payload extends undefined | Object,
+  Meta extends undefined | Object
+> = (props: Payload) => StandardAction<ActionType, Payload, Meta>;

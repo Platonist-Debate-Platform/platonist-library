@@ -1,11 +1,11 @@
-import { StandardActionFn } from '../../Alerts';
 import { Debate } from '../../Models';
+import { StandardActionFn } from '../../Redux';
 import { DebateLinkActionKeys } from './Keys';
 
 export const clearDebateLink: StandardActionFn<
-DebateLinkActionKeys.Clear,
-undefined,
-undefined
+  DebateLinkActionKeys.Clear,
+  undefined,
+  undefined
 > = () => ({
   type: DebateLinkActionKeys.Clear,
   payload: undefined,
@@ -19,7 +19,6 @@ export const setDebateLink: StandardActionFn<
   type: DebateLinkActionKeys.Set,
   payload,
 });
-
 
 export const createDebateLinkAction = () => ({
   clearDebateLink,
