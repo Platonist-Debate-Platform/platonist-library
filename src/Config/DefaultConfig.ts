@@ -26,12 +26,12 @@ export const isLocalhost =
   (global.location.hostname === 'localhost' ||
     global.location.hostname === '127.0.0.1');
 
-const resolveApiUrl = (environment: AppEnvKeys) => {
+const resolveApiUrl = (environment: AppEnvKeys, forApi: boolean = true) => {
   switch (environment) {
     case AppEnvKeys.Staging:
-      return 'staging-api.globalctgroup.com';
+      return ((forApi && 'staging-api.') || 'staging.') + 'platonist.de';
     case AppEnvKeys.Production:
-      return 'api.globalctgroup.com';
+      return ((forApi && 'api.') || '') + 'platonist.de';
     case AppEnvKeys.Development:
     default:
       return 'localhost';
@@ -53,8 +53,25 @@ export const createApiUrl = ({
 }: ApiConfig = apiConfig) =>
   new URL(
     path || '',
-    `${protocol}://${url}${(port && ':' + port) || ''}${path && '/' + path}`,
+    `${protocol}://${url}${(port && ':' + port) || ''}${
+      (path && '/' + path) || '/'
+    }`,
   );
+
+export const publicUrl = () => {
+  const reactPublicUrl = env.REACT_APP_PUBLIC_URL;
+  if (reactPublicUrl && reactPublicUrl.length) {
+    const url = new URL(reactPublicUrl);
+    url.protocol =
+      isProduction || isStaging ? ApiProtocol.Https : ApiProtocol.Http;
+    return url;
+  }
+  return createApiUrl({
+    url: resolveApiUrl(env.NODE_ENV as AppEnvKeys, false),
+    protocol: isProduction || isStaging ? ApiProtocol.Https : ApiProtocol.Http,
+    port: !(isProduction || isStaging) ? 3000 : undefined,
+  });
+};
 
 export const breakpoints: Breakpoint[] = [
   {
