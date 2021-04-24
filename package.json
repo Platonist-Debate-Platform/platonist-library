@@ -2,6 +2,7 @@
   "name": "platonist-library",
   "version": "1.0.0",
   "main": "build/index.js",
+  "types": "build/index.d.js",
   "author": "Daniel Pfisterer <info@daniel-pfisterer.de>",
   "license": "MIT",
   "dependencies": {
