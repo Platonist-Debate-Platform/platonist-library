@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { apiConfig, createApiUrl } from '../Config';
-import { Position } from 'react-markdown';
+// import { Position } from 'react-markdown';
 
 export interface MarkdownFilRendererNode {
   alt: string;
-  position: Position;
+  // position: Position;
   title?: string;
   type: string;
   url: string;
@@ -19,9 +19,8 @@ export interface MarkdownFilRendererProps {
   src: string;
 }
 
-export const getFileExtension = (filename: string) => {
-  return filename.slice(((filename.lastIndexOf('.') - 1) >>> 0) + 2);
-};
+export const getFileExtension = (filename: string) =>
+  filename.slice(((filename.lastIndexOf('.') - 1) >>> 0) + 2);
 
 export enum ImageFileExtensions {
   JPEG = 'JPEG',

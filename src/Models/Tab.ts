@@ -1,13 +1,13 @@
-import { ContentKeys } from "./Content";
-import { Page } from "./Page";
-import { Image } from "./Image";
-import { Media } from "reactstrap";
-import { Icon } from "./Icon";
+import { Media } from 'reactstrap';
+import { ContentKeys } from './Content';
+import { Page } from './Page';
+import { Image } from './Image';
+import { Icon } from './Icon';
 
 export interface Tab {
   __component: ContentKeys;
   id: number;
-  tabItem?: (TabItem<Page> | null)[] | null
+  tabItem?: (TabItem<Page> | null)[] | null;
   title?: string;
 }
 

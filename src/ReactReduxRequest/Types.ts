@@ -59,7 +59,7 @@ export interface ReactReduxRequestError {
 export interface ReactReduxRequestState<
   Payload extends Object,
   Meta extends Object
-  > {
+> {
   error?: ReactReduxRequestError;
   hash: string;
   id: KeysOfRequestIDs;
@@ -101,7 +101,7 @@ export interface QueryParameterBase {
   // Get record that are lower than a value
   _lt?: string;
 
-  //Get records that are lower than or equal to a value
+  // Get records that are lower than or equal to a value
   _lte?: string;
 
   // Get records that are greater than a value

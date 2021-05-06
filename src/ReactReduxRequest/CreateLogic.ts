@@ -46,7 +46,7 @@ export const createRequestLogic = <
     process: (process, dispatch, done) => {
       const meta = process.action.meta as AxiosRequestConfig;
 
-      httpRequest(Object.assign({}, requestConfig, meta || {}))
+      httpRequest({ ...requestConfig, ...meta })
         .then(({ config, data, status, statusText }) => {
           dispatch(
             receiveRequest(id, data, {

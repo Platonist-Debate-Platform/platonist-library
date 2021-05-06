@@ -7,7 +7,7 @@ import {
   DefaultConfig,
 } from './Types';
 
-const env = process.env;
+const { env } = process;
 
 export const isDevelopment =
   (env.NODE_ENV as AppEnvKeys) === AppEnvKeys.Development ? true : false;
