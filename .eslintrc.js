@@ -313,5 +313,6 @@ module.exports = {
     'no-console': 'off',
     'prefer-template': 'off',
     'no-bitwise': 'off',
+    'prefer-destructuring': 'off',
   },
 };
