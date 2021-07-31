@@ -18,6 +18,7 @@ export enum PrivateRequestKeys {
   Article = 'article',
   Articles = 'articles',
   Comment = 'comment',
+  Moderate = 'moderate',
   File = 'file',
   Role = 'role',
   Roles = 'roles',

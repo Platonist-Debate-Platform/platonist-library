@@ -55,6 +55,7 @@ export interface PrivateState {
   [PrivateRequestKeys.Article]: ArticleState;
   [PrivateRequestKeys.Articles]: ArticlesState;
   [PrivateRequestKeys.Comment]: CommentState;
+  [PrivateRequestKeys.Moderate]: CommentState;
   [PrivateRequestKeys.File]: FileState;
   [PrivateRequestKeys.Permission]: PermissionState;
   [PrivateRequestKeys.Permissions]: PermissionsState;
