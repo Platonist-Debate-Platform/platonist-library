@@ -1,9 +1,9 @@
 import { Homepage } from '../Models';
-import { isDevelopment } from '../Config';
 
 export const getCurrentHomepage = (
   location: Partial<Location>,
   homepages: Homepage[],
+  isDevelopment: boolean,
 ): Homepage | undefined => {
   if (
     isDevelopment &&

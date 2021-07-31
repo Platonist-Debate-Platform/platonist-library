@@ -9,21 +9,32 @@ export interface CommentMeta {
   moderatorId: number | null;
   userId: number | null;
 }
+
+export enum CommentStatus {
+  Active = 'active',
+  Blocked = 'blocked',
+  Disputed = 'disputed',
+}
+
 export interface Comment {
+  blocked: boolean;
   comment: string;
   created_at: Date | string;
   created_by: User['id'];
   debate: Debate['id'] | Debate;
+  disputed: boolean;
   id: string;
   meta?: CommentMeta;
+  moderationComment?: string;
+  parent: Comment['id'] | Comment | null;
   published_at: number;
   replies: (Comment | null)[] | null;
   replyCount: number;
+  status: CommentStatus;
   timestamp: Date | string;
   updated_at: Date | string;
   updated_by: User['id'];
   user: User['id'] | User | null;
-  parent: Comment['id'] | Comment | null;
 }
 
 export type CommentState = ReactReduxRequestState<Comment, AxiosRequestConfig>;
