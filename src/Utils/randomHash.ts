@@ -1,5 +1,6 @@
 export class RandomHash {
-  private readonly chars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
+  private readonly chars: string =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
 
   public create(length = 34): string {
     let hash = '';
@@ -10,4 +11,5 @@ export class RandomHash {
   }
 }
 
-export const randomHash = (length: number = 16) => new RandomHash().create(length);
+export const randomHash = (length: number = 16) =>
+  new RandomHash().create(length);

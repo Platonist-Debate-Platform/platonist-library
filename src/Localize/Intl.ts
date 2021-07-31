@@ -1,5 +1,4 @@
 import { createIntl, createIntlCache } from 'react-intl';
-import { OptionalIntlConfig } from 'react-intl/src/components/provider';
 
 import {
   AvailableLanguage,
@@ -9,13 +8,13 @@ import {
 // import translations from '../../Assets/I18n/messages';
 const intlCache = createIntlCache();
 
-const intlConfigDe: OptionalIntlConfig = {
+const intlConfigDe = {
   locale: AvailableLanguagesExtended.DeDE,
   defaultLocale: AvailableLanguagesExtended.En150,
   // messages: translations.de,
 };
 
-const intlConfigEn: OptionalIntlConfig = {
+const intlConfigEn = {
   locale: AvailableLanguagesExtended.En150,
   // messages: translations.en,
 };

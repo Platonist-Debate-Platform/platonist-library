@@ -10,12 +10,11 @@ const resolveLanguage = (
       ? (langArray[0] as AvailableLanguages)
       : undefined;
   }
-  return;
+  return undefined;
 };
 
-const isLanguageAvailable = (code: AvailableLanguagesExtended): boolean => {
-  return availableLanguages.some((language) => language.extendedCode === code);
-};
+const isLanguageAvailable = (code: AvailableLanguagesExtended): boolean =>
+  availableLanguages.some((language) => language.extendedCode === code);
 
 const transformLanguageCode = (
   code: AvailableLanguages,
