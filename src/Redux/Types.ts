@@ -16,6 +16,8 @@ import {
   FileState,
   HomepagesState,
   HomepageState,
+  ModerationsState,
+  ModerationState,
   PagesState,
   PageState,
   RolesState,
@@ -45,6 +47,8 @@ export interface PublicState {
   [PublicRequestKeys.Debates]: DebatesState;
   [PublicRequestKeys.Homepage]: HomepageState;
   [PublicRequestKeys.Homepages]: HomepagesState;
+  [PublicRequestKeys.Moderation]: ModerationState;
+  [PublicRequestKeys.Moderations]: ModerationsState;
   [PublicRequestKeys.Locals]: AvailableLanguage;
   [PublicRequestKeys.Page]: PageState;
   [PublicRequestKeys.Pages]: PagesState;

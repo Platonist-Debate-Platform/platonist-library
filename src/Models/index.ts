@@ -14,6 +14,7 @@ export * from './Image';
 export * from './Jumbotron';
 export * from './Logo';
 export * from './Meta';
+export * from './Moderation';
 export * from './Page';
 export * from './Ratings';
 export * from './Role';

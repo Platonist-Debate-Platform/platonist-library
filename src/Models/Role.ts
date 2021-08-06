@@ -55,8 +55,9 @@ export interface ContentTypePermission {
 
 export interface ContentManagerController {
   components: ComponentReadPermission;
-  contentmanager: RestApplicationPermission & RolePermissionContentManagerMethods;
-  contenttypes: ContentTypePermission
+  contentmanager: RestApplicationPermission &
+    RolePermissionContentManagerMethods;
+  contenttypes: ContentTypePermission;
 }
 
 export interface BuilderPermission {
@@ -101,7 +102,7 @@ export interface RolePermissionInformation {
 
 export interface RolePermission<Controller> {
   controllers: Controller;
-  information?: RolePermissionInformation
+  information?: RolePermissionInformation;
 }
 
 export interface DocumentationPermission {
@@ -192,12 +193,15 @@ export enum ApplicationKeys {
   Comment = 'comment',
   Debate = 'debate',
   Homepage = 'homepage',
+  Moderation = 'moderation',
   Page = 'page',
   Rating = 'rating',
   Social = 'social',
 }
 
-export type ApplicationController = {[key in keyof ApplicationKeys]: RestApplicationPermission};
+export type ApplicationController = {
+  [key in keyof ApplicationKeys]: RestApplicationPermission;
+};
 
 export enum RolePermissionTypes {
   Application = 'application',
@@ -213,8 +217,10 @@ export interface RolePermissions {
   [RolePermissionTypes.Application]: RolePermission<ApplicationController>;
   [RolePermissionTypes.ContentManager]: RolePermission<ContentManagerController>;
   [RolePermissionTypes.ContentTypeBuilder]: RolePermission<ContentTypeBuilderController>;
-  [RolePermissionTypes.Documentation]: RolePermission<{documentation: DocumentationPermission}>;
-  [RolePermissionTypes.Email]: RolePermission<{email: EmailPermission}>;
+  [RolePermissionTypes.Documentation]: RolePermission<{
+    documentation: DocumentationPermission;
+  }>;
+  [RolePermissionTypes.Email]: RolePermission<{ email: EmailPermission }>;
   [RolePermissionTypes.Upload]: RolePermission<UploadControllerPermission>;
   [RolePermissionTypes.UsersPermissions]: RolePermission<UsersPermission>;
 }
@@ -223,7 +229,7 @@ export enum RoleType {
   Admin = 'admin',
   Authenticated = 'authenticated',
   Editor = 'editor',
-  Public = 'public'
+  Public = 'public',
 }
 export interface Role {
   name: string;
@@ -231,8 +237,14 @@ export interface Role {
   id: string;
   type: RoleType;
   permissions: RolePermissions;
-  users?: (User)[] | null;
+  users?: User[] | null;
 }
 
-export type RoleState = ReactReduxRequestState<{role: Role}, AxiosRequestConfig>;
-export type RolesState = ReactReduxRequestState<{roles: Role[]}, AxiosRequestConfig>;
+export type RoleState = ReactReduxRequestState<
+  { role: Role },
+  AxiosRequestConfig
+>;
+export type RolesState = ReactReduxRequestState<
+  { roles: Role[] },
+  AxiosRequestConfig
+>;

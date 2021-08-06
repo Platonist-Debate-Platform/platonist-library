@@ -3,6 +3,7 @@ import { AxiosRequestConfig } from 'axios';
 import { User } from '../Models';
 import { ReactReduxRequestState, RequestWithPager } from '../ReactReduxRequest';
 import { Debate } from './Debate';
+import { Moderation } from './Moderation';
 
 export interface CommentMeta {
   debateId: number | null;
@@ -25,6 +26,7 @@ export interface Comment {
   disputed: boolean;
   id: string;
   meta?: CommentMeta;
+  moderation?: Moderation;
   moderationComment?: string;
   parent: Comment['id'] | Comment | null;
   published_at: number;

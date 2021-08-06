@@ -9,6 +9,8 @@ export enum PublicRequestKeys {
   Homepage = 'homepage',
   Homepages = 'homepages',
   Locals = 'locals',
+  Moderation = 'moderation',
+  Moderations = 'moderations',
   Page = 'page',
   Pages = 'pages',
   Router = 'router',
