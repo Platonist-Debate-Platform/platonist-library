@@ -1,6 +1,6 @@
 {
   "name": "platonist-library",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "build/index.js",
   "types": "build/index.d.js",
   "author": "Daniel Pfisterer <info@daniel-pfisterer.de>",
@@ -57,8 +57,8 @@
     "@types/react-router-dom": "^5.3.1",
     "@types/redux-logger": "^3.0.9",
     "@types/validator": "^13.6.3",
-    "@typescript-eslint/parser": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "babel-eslint": "^10.1.0",
     "classnames": "^2.3.1",
     "eslint": "^7.5.0",
